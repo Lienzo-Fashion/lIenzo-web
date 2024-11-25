@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="product summay style.css">
+    <link rel="stylesheet" href="product summary.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="header">
+        <div id="logo"><a href="/LIENZO/HOME PAGE/index.html" style="height: 100%;"><img src="lienzologo.jpeg" style="height: 100%;" ></a></div>
+        <div id="name">LIENZO</div>
+        <div id="tabs">
+          <!-- <a href="/HOME PAGE/index.html" style="text-decoration: none;"><div class="tab_items">HOME</div></a> -->
+          <a href="/LIENZO/PRODUCT CATEGORY PAGES/ALL PRODUCTS/cartpage2.html" style="text-decoration: none;"><div class="tab_items">CART</div></a>
+          <a href="/LIENZO/SIGNUP AND LOGIN PAGE/singup.html" style="text-decoration: none;"><div class="tab_items">LOGIN</div></a>
+        </div>
+        <div id="tabs_icon">
+          <!-- <a href="/HOME PAGE/index.html" style="text-decoration: none;"><div class="tab_items_icon"><img src="home.png" height="100%"></div></a> -->
+          <a href="/LIENZO/PRODUCT CATEGORY PAGES/ALL PRODUCTS/cartpage2.html" style="text-decoration: none;"><div class="tab_items_icon"><img src="grocery-store.png" height="100%"></div></a>
+          <a href="/LIENZO/SIGNUP AND LOGIN PAGE/singup.html" style="text-decoration: none;"><div class="tab_items_icon"><img src="user.png" height="100%"></div></a>
+        </div>
+      </div>
+  <div class="fake-header"><h1>DON'T STRETCH</h1></div>
+      
+  
+      <main id="product_main">
+  
+          <div class="product-container">
+          <div class="product-images">
+              <div class="slideshow-container">
+                  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <img src="image4.png" alt="Product Image 1" class="slide-image active" style="padding: 10px; display:flex; align-items:center; justify-content:center">
+          <img src=" " alt="Product Image 2" class="slide-image" style="padding: 10px;">
+          <img src=" " alt="Product Image 3" class="slide-image" style="padding: 10px;">
+          <img src=" " alt="Product Image 4" class="slide-image" height="100%" style="padding: 10px;">
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                  
+              </div>
+              <div class="thumbnail-container">
+                  <img src="1.png" class="thumbnail" onclick="selectSlide(0)">
+                  <img src=" " class="thumbnail" onclick="selectSlide(1)">
+                  <img src=" " class="thumbnail" onclick="selectSlide(2)">
+                  <img src=" " class="thumbnail" onclick="selectSlide(3)">
+              </div>
+          </div>
+  
+              <div class="product-details" >
+                  <h1>${product_title[m]}</h1>
+                  <p class="description" style="font-size: 20px">${short_description[m]}</p>
+                  <p class="price">
+                      <span class="discounted-price">₹    ${product_prices[m]}/-</span>
+                      <span class="original-price">₹${MRP[m]}</span>
+                      <span class="discount">${discount_percentage[m]}% OFF</span>
+                  </p>
+                  <div class="size-selection">
+      <p>Select Size</p>
+      <button id="sizes" class="size-button" onclick="selectSize('S')">S</button>
+      <button id="sizem" class="size-button" onclick="selectSize('M')">M</button>
+      <button id="sizel" class="size-button" onclick="selectSize('L')">L</button>
+          <button id="sizexl" class="size-button" onclick="selectSize('XL')">XL</button>
+      <button id="size2xl" class="size-button" onclick="selectSize('2XL')">2XL</button>
+      <p>Your selected size: <span id="selected-size">None</span></p>
+                  </div>
+                  <button class="add-to-bag" onclick=" addToCart(${i},'${product_title[m]}',${product_prices[m]}, ' ')">ADD TO CART</button>
+                  <button class="add-to-bag" class="wishlist" id="buyit" onclick="show_cart(${product_prices[m]},' ','${product_title[m]}');" >BUY NOW</button>
+                  <div class="delivery">
+                      <p>Check for Delivery Details</p>
+                      <input id="pincode" type="text" placeholder="Enter Pincode">
+                      <button onclick="checkpincode()">CHECK</button>
+                      <h6 id="pincode_validity"></h6>
+                  </div>
+                  <div class="highlights">
+                      <h2>Key Highlights</h2>
+                      <p><strong>Design:</strong> ${Design[m]}</p>
+                      <p><strong>Category:</strong> ${product_Category[m]}</p>
+                      <p><strong>Fabric:</strong> ${product_Fabric[m]}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </main>
+  
+      <script>
+          // Select all elements with the class 'size-button'
+          const sizeButtons = document.querySelectorAll(".size-button");
+      
+          // Function to clear all buttons' styles
+          function clearSelection() {
+              sizeButtons.forEach(button => {
+                  button.style.backgroundColor = "";
+                  button.style.color = "";
+              });
+          }
+      
+          // Add click event listener to each button
+          sizeButtons.forEach(button => {
+              button.addEventListener("click", () => {
+                  // Clear styles from all buttons
+                  clearSelection();
+                  
+                  // Highlight the selected button
+                  button.style.backgroundColor = "black";
+                  button.style.color = "white";
+              });
+          });
+      </script>
+      <script src="script.js"></script>`
+</body>
+</html>
